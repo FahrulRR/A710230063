@@ -1,0 +1,55 @@
+class Komputer:
+    def __init__(self, mek, ram, processor, turned_on=False):
+        self.__mek = mek           # Private attribute
+        self.__ram = ram           # Private attribute
+        self.processor = processor
+        self.turned_on = turned_on
+
+    def turn_on(self):
+        if not self.turned_on:
+            self.turned_on = True
+            print("Komputer telah nyala.")
+        else:
+            print("Komputer sudah dalam keadaan nyala.")
+
+    def turn_off(self):
+        if self.turned_on:
+            self.turned_on = False
+            print("Komputer telah mati.")
+        else:
+            print("Komputer sudah dalam keadaan mati.")
+
+    def display_info(self):
+        print(f"Informasi Komputer:\nMerek: {self.__mek}\nRAM: {self.__ram} GB\nProcessor: {self.processor}\nStatus: {'Dinyalakan' if self.turned_on else 'Dimatikan'}")
+
+    # Getter for mek
+    def get_mek(self):
+        return self.__mek
+
+    # Setter for mek
+    def set_mek(self, mek):
+        self.__mek = mek
+
+    # Getter for ram
+    def get_ram(self):
+        return self.__ram
+
+    # Setter for ram
+    def set_ram(self, ram):
+        self.__ram = ram
+
+
+# Membuat objek baru
+komputer3 = Komputer("HP", 4, "Intel Core i3")
+
+# Mengakses dan mengubah variabel private menggunakan getter dan setter
+print("Merek sebelum diubah:", komputer3.get_mek())
+komputer3.set_mek("Dell")
+print("Merek setelah diubah:", komputer3.get_mek())
+
+print("RAM sebelum diubah:", komputer3.get_ram())
+komputer3.set_ram(12)
+print("RAM setelah diubah:", komputer3.get_ram())
+
+# Menampilkan informasi komputer
+komputer3.display_info()
